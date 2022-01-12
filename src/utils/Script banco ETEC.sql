@@ -1,6 +1,7 @@
 #create database laboratorios;
 use laboratorios;
 
+
 ## Informação necessarias pegar da secretaria...
 create table ETEC(
 	CNPJ char(19) primary key,
