@@ -4,7 +4,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 <h2>Requisitos:</h2>
 <li>Node js</li> 
 <li>mysql</li> 
-
+<br>
+<br>
 
 Baixe os arquivos e instale as dependencias com o comando:
 <h4>npm install</h4>
