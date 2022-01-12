@@ -8,7 +8,7 @@ const conect = mysql({config:{
     port:3306,
 }});
 
-export const sql_query = async (sqlquery:string, values=[]) => {
+export const sql_query = async (sqlquery:string, values = []) => {
     try {
         await conect.connect();
         try{
