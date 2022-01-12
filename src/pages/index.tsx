@@ -1,5 +1,5 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import type {Laboratorio} from '../utils/types/lab_types'
+import type {Laboratorio} from '../types/lab_types'
 
 import styles from '../styles/Home.module.css'
 

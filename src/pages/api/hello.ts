@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { Data, Error } from '../../utils/types/lab_types';
-import { sql_query } from '../../utils/database';
+import type { Data, Error } from '../../types/lab_types';
+import { sql_query } from '../../lib/database';
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | Error>): Promise<void> {
