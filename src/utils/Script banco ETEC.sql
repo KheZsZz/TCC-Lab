@@ -1,11 +1,10 @@
-#create database laboratorios;
+# create database laboratorios;
 use laboratorios;
 
-
-## Informação necessarias pegar da secretaria...
+# Informação necessarias pegar da secretaria...
 create table ETEC(
-	CNPJ char(19) primary key,
-	nome varchar(45)
+	CNPJ char(19) primary key ,
+	razão_social varchar(45)
 );
 
 create table usuarios (
@@ -15,22 +14,48 @@ create table usuarios (
 	endereco varchar(45) not null,
 	telefone varchar(15)
 );
-create table alunos(
-	RM int primary key not null
-);
-create table corpo_docente(
-	RM int primary key
-);
-
-create table almoxarifado(
-	id	 int primary key not null,
-	rm int not null
-);
 
 create table disciplinas(
-	id int primary key,
-	curso varchar(45) not null
+	sigla varchar(5) primary key,
+    nome varchar(45) ,
+	curso varchar(45) not null,
+    peoriodo varchar(20),
+    semestre int
 );
+
+create table professores (
+	rm int primary key not null,
+	cpf char(15) not null,
+	cordenador boolean,
+    disciplina varchar(5)
+);
+alter table professores add constraint cpf foreign key (cpf) references usuarios (CPF);
+alter table professores add constraint disciplina foreign key (disciplina) references disciplinas (sigla);
+
+create view cordenadores as 
+select nome, rm, cpf from professores where cordenador = true 
+union select telefone from usuarios where usuarios.CPF = professores.cpf order by nome;
+
+create table alunos(
+	RM int primary key not null,
+	cpf char(15) not null
+);
+alter table alunos add constraint cpf foreign key (cpf) references usuarios (CPF);
+
+create table corpo_docente(
+	RM int primary key,
+	cpf char(15) not null,
+    peoriodo varchar (20)
+);
+alter table corpo_docente add constraint cpf foreign key (cpf) references usuarios (CPF);
+
+create table almoxarifado(
+	rm int not null primary key,
+	cpf char(15) not null
+);
+alter table almoxarifado add constraint cpf foreign key (cpf) references usuarios (CPF);
+
+
 
 ## sistema laboratorios
 create table agendamentos(
@@ -53,13 +78,21 @@ create table patrimonios(
 	marca varchar(45) not null,
 	modelo varchar(45) not null,
 	cor varchar(20) not null,
-	descricao varchar(45)
+	nome varchar(45) not null,
+    observações text
 );
 
 create table estoque(
 	entrada varchar(45) not null,
-	retirada varchar(45)
+	retirada varchar(45),
+    produto int,
+    responsavel int
 );
+alter table estoque add constraint responsavel foreign key (responsavel) references almoxarifado (rm);
+alter table estoque add constraint produto foreign key (produto) references almoxarifado (num_serie);
+
+create view qtd_total as
+select nome, count(nome) from patrimonios;
 
 create table manutencao(
 	id int primary key,
