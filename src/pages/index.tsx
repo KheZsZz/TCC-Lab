@@ -23,6 +23,7 @@ const Home: NextPage = ( props : InferGetStaticPropsType<typeof getStaticProps>)
           ))
         }
       </div>
+      
     </div>
   )
 }
