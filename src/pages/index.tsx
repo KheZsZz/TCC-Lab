@@ -15,7 +15,7 @@ const Home: NextPage = ( props : InferGetStaticPropsType<typeof getStaticProps>)
       </form><br/>
       <div>
         {
-          props.labs.data.map((item:Laboratorio)=> (
+          props?.labs.data.map((item:Laboratorio)=> (
             <div key={item.id}>
               <h4>{item.nome}</h4>
               <p>{item.tipo}</p>

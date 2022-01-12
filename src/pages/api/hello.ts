@@ -6,6 +6,7 @@ import { sql_query } from '../../lib/database';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | Error>): Promise<void> {
 
+  
   switch(req.method){
 
     case "GET":

@@ -11,5 +11,5 @@ export type Error = {
 export type Laboratorio = {
     id?:number,
     nome:string,
-    tipo:string
+    tipo:string,
 }

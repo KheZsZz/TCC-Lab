@@ -21,5 +21,4 @@ export const sql_query = async (sqlquery:string, values = []) => {
     } catch (error) {
         console.error(error + "Error in connection");
     }
-    
 }
