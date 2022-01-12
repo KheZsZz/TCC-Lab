@@ -5,12 +5,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 <li>Node js</li> 
 <li>mysql</li> 
 <br>
-<br>
 
-Baixe os arquivos e instale as dependencias com o comando:
-<h4>npm install</h4>
+<p>Baixe os arquivos e instale as dependencias com o comando: <strong>npm install</strong></p>
 
-Feito isso crie na raiz do projeto um arquivo chamado <h4>.env.local</h4> e defina as seguintes variaveis:
+Feito isso crie na raiz do projeto um arquivo chamado <strong>.env.local</strong> e defina as seguintes variaveis:
 * MYSQL_HOST = "O host do banco ex: localhost"
 * MYSQL_DATABASE = "Nome do banco de dados"
 * MYSQL_USER = "usuário... ex: root" 
