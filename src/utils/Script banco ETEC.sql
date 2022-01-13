@@ -66,9 +66,9 @@ create table laboratorio(
 
 create table agendamentos(
 	id integer primary key,
-	periodo varchar(20) not null default "noturno",
+	h_inicio time,
+	h_termino time,
 	data_uso date not null,
-	aprova_agendamento varchar(45) not null,
 	descricao varchar (45) 
 );
 
