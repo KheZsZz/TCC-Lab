@@ -58,18 +58,18 @@ alter table almoxarifado add constraint cpf foreign key (cpf) references usuario
 
 
 ## sistema laboratorios
+create table laboratorio(
+	id int primary key,
+	nome varchar (45) not null,
+	tipo varchar (45) not null
+);
+
 create table agendamentos(
 	id integer primary key,
 	periodo varchar(20) not null default "noturno",
 	data_uso date not null,
 	aprova_agendamento varchar(45) not null,
 	descricao varchar (45) 
-);
-
-create table laboratorio(
-	id int primary key,
-	nome varchar (45) not null,
-	tipo varchar (45) not null
 );
 
 create table patrimonios(
