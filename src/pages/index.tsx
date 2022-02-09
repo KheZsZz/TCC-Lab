@@ -1,42 +1,61 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import type {Laboratorio} from '../types/lab_types'
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 
-import styles from '../styles/Home.module.css'
+import styles from "../styles/Home.module.css";
+import { useForm } from 'react-hook-form';
 
 //Exemplo
+type SingIn = {
+  email:string
+  password:string
+}
 
-const Home: NextPage = ( props : InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home: NextPage = ( props: InferGetStaticPropsType<typeof getStaticProps>) => {
+
+  const {register, handleSubmit} = useForm<SingIn>();
+
+  const singIn = async (data:SingIn) => {
+    console.log(data);
+  }
+
 
   return (
     <div className={styles.container}>
-      <form>
-        <input type="text" name="nome" placeholder='nome:'/>
 
-      </form><br/>
-      <div>
-        {
-          props?.labs.data.map((item:Laboratorio)=> (
-            <div key={item.id}>
-              <h4>{item.nome}</h4>
-              <p>{item.tipo}</p>
-            </div>
-          ))
-        }
-      </div>
-      
+      <form onSubmit= { handleSubmit(singIn) }>
+
+        <input 
+          { ...register('email') }
+          type="email" 
+          name="email" 
+          placeholder="E-mail:"
+        />
+
+        <br/>
+
+        <input
+          { ...register('password') }
+          type='password'
+          name='password'
+          placeholder="Password:"
+        />
+
+        <br/>
+        
+        <button type="submit"> Sing In </button>
+
+      </form>
+
     </div>
-  )
-}
+  );
+};
 
-export const getStaticProps:GetStaticProps  = async () => {
-  const res = await fetch("http://localhost:3000/api/hello",{method:"GET"}); //busca dados na API
-  const labs:Laboratorio[] = await res.json(); 
+export const getStaticProps: GetStaticProps = async () => {
 
   return {
-    props:{
-      labs,
-    }
-  }
-}
+    props: {
+      
+    },
+  };
+};
 
 export default Home;
