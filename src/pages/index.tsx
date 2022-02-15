@@ -42,6 +42,7 @@ const Home: NextPage = ( props: InferGetStaticPropsType<typeof getStaticProps>) 
   } else {
 
     return (
+      
       <div className={styles.container}>
 
         <form onSubmit= { handleSubmit(singIn) }>

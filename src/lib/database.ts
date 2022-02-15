@@ -5,10 +5,10 @@ const conect = mysql({config:{
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    port:3306,
+    port: 3306,
 }});
 
-export const sql_query = async (sqlquery:string, values = []) => {
+export const sql_query = async (sqlquery:string, values:string[] | number[] | Object[] = []) => {
     try {
         await conect.connect();
         try{
