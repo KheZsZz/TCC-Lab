@@ -5,7 +5,7 @@ Trabalho realizado para a conclusão de curso de [`Desenvolvimento de Sistemas`]
 ## @Requisitos
 [`Node js`](https://nodejs.org/en/), [`mysql`](https://www.mysql.com/) juntamente com o framework [`Next.js`](https://nextjs.org/)
 
-##Iniciando...
+## @Iniciando...
 
 Baixe os arquivos e entre na pasta raiz.
 Execute o comando `npm Install` e instale as dependencias.
