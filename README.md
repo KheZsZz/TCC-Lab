@@ -6,7 +6,7 @@ Trabalho realizado para a conclusão de curso de [`Desenvolvimento de Sistemas`]
 <li>Node js</li> 
 <li>mysql</li> 
 
-Projetos ultiliza o framework [`Next.js`](https://nextjs.org/)
+O projeto ultiliza o framework [`Next.js`](https://nextjs.org/)
 
 ##Iniciando...
 
