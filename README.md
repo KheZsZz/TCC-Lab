@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Trabalho realizado para a conclusão de curso de [`Desenvolvimento de Sistemas`](https://www.vestibulinhoetec.com.br/unidades-cursos/curso.asp?c=1500) da [`ETEC de Embu`](https://www.etecdeembu.com.br/) do ano de 2.022
+
 ## Getting Started
 <h2>Requisitos:</h2>
 <li>Node js</li> 
