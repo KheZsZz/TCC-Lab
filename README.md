@@ -3,9 +3,7 @@
 Trabalho realizado para a conclusão de curso de [`Desenvolvimento de Sistemas`](https://www.vestibulinhoetec.com.br/unidades-cursos/curso.asp?c=1500) da [`ETEC de Embu`](https://www.etecdeembu.com.br/) do ano de 2.022, orientado pela professora `Aline Francisca`.
 
 ## @Requisitos
-[`Node js`](https://nodejs.org/en/)
-[`mysql`](https://www.mysql.com/) 
-O projeto ultiliza o framework [`Next.js`](https://nextjs.org/)
+[`Node js`](https://nodejs.org/en/), [`mysql`](https://www.mysql.com/) juntamente com o framework [`Next.js`](https://nextjs.org/)
 
 ##Iniciando...
 
