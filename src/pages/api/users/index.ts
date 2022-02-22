@@ -1,4 +1,3 @@
-//Route Labs
 //import types
 import { NextApiRequest, NextApiResponse } from 'next';
 
