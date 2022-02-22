@@ -15,3 +15,7 @@ export interface Assets { // Patrimonios
     model:string,
     lot_number:number
 }
+
+export type ErrorAssets = {
+    message:Error | string
+}

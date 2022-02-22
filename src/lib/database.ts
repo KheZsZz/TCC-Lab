@@ -1,7 +1,5 @@
 import mysql from 'serverless-mysql';
 
-//types
-import { Users } from '../types/types_users';
 
 const conect = mysql({config:{
     database: process.env.MYSQL_DATABASE,
@@ -11,12 +9,14 @@ const conect = mysql({config:{
     port: 3306,
 }});
 
-export const sql_query = async <T = unknown[] | Users> (sqlquery:string, values:string[] | number[] | Object[] = []) => {
+export const sql_query = async <T = unknown[]> (sqlquery:string, values:string[] | number[] | Object[] = []) => {
     try {
         await conect.connect();
+        console.log('conectado...')
         try{
             const result:T = await conect.query(sqlquery, values);
             await conect.end();
+            console.log('conectado')
             return result;
         }catch(e){
             console.error(e)

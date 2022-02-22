@@ -3,10 +3,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 //import sys
-import { sql_query } from '../../lib/database';
+import { sql_query } from '../../../lib/database';
 
 //types 
-import { Users } from '../../types/types_users';
+import { Users } from '../../../types/types_users';
 
 
 const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
@@ -17,7 +17,7 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
 
         case "GET":
             const data = await sql_query<Users>(
-                'SELECT * FROM users',
+                'SELECT * FROM usuarios_tbl',
                 []);
             res.status(200).json( { data });
         break;
