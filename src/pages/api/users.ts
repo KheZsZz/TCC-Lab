@@ -5,18 +5,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 //import sys
 import { sql_query } from '../../lib/database';
 
-
 //types 
-type Users = {
-    id:number,
-    nome:string,
-    sobrenome:string
-    email:string,
-    password:string,
-    cpf:string,
-    rg: string,
-    cetegoria:string
-}
+import { Users } from '../../types/types_users';
+
 
 const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
     const method = req.method;
@@ -25,10 +16,10 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
     switch(method){
 
         case "GET":
-            const data = await sql_query(
+            const data = await sql_query<Users>(
                 'SELECT * FROM users',
                 []);
-            res.status(200).json( { data } );
+            res.status(200).json( { data });
         break;
 
         default:
