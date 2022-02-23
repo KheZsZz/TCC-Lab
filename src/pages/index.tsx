@@ -2,10 +2,11 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 
 //Styles
-import styles from "../styles/Home.module.css"; // todos os estilos...
+import styles from "../styles/home.module.css"; // todos os estilos...
 
 //import system
 import { useForm } from 'react-hook-form';
+import  Router  from "next/router";
 
 //types page
 type SingIn = {
@@ -25,6 +26,7 @@ const Home: NextPage = ( props: InferGetStaticPropsType<typeof getStaticProps>) 
   const singIn = async (data:SingIn) => {
     //pega os dados de acesso e verifica se está cadastrado...
     console.log(data, props);
+    Router.push('/assets')
   }
 
 
