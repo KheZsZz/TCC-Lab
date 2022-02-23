@@ -19,7 +19,7 @@ const Assets = ({ props }:InferGetStaticPropsType <typeof getStaticProps>) => {
         console.log(data)
     }
 
-    if(!props) {
+    if(props) {
         return(
             <div className={Styles.container}>
                 <form className={Styles.form} onSubmit={handleSubmit(Regist)}>
@@ -61,6 +61,15 @@ const Assets = ({ props }:InferGetStaticPropsType <typeof getStaticProps>) => {
 
                     <button type="submit"> Register </button>
                 </form>
+                
+                <div>
+                    {props?.data.map( (itens:Assets) => (
+                        <div key ={itens.id}>
+                            <h2>{itens.name} - {itens.brand} - {itens.model}</h2>
+                            <p>Lote: {itens.lot_number}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     }else {
