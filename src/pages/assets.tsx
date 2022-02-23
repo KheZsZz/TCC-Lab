@@ -9,16 +9,20 @@ import Styles from '../styles/assets.module.css';
 import { Loadding } from '../components/loadding';
 
 //hooks
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 
 const Assets = ({ props }:InferGetStaticPropsType <typeof getStaticProps>) => {
 
     const {register, handleSubmit} = useForm<Assets>();
 
-    if(props) {
+    const Regist = (data:Assets) => {
+        console.log(data)
+    }
+
+    if(!props) {
         return(
-            <div>
-                <form>
+            <div className={Styles.container}>
+                <form className={Styles.form} onSubmit={handleSubmit(Regist)}>
                     <input 
                         { ...register('assets_number') }
                         name = 'assets_number'
@@ -29,27 +33,33 @@ const Assets = ({ props }:InferGetStaticPropsType <typeof getStaticProps>) => {
                         { ...register('serial_number') }
                         name='serial_number'
                         type = 'text'
+                        placeholder = 'Insert serial number'
                     />
                     <input 
                         { ...register('name') }
                         name='name'
                         type = 'text'
+                        placeholder = 'Insert assets name'
                     />
                     <input 
                         { ...register('brand') }
                         name='brand'
+                        placeholder = 'Insert assets brand'
                     />
                     <input 
                         { ...register('model') }
                         name='model'
                         type = 'text'
+                        placeholder = 'Insert assets model'
                     />
                     <input 
                         { ...register('lot_number') }
                         name='lot_number'
                         type = 'number'
+                        placeholder = 'Insert assets lot number'
                     />
 
+                    <button type="submit"> Register </button>
                 </form>
             </div>
         );
