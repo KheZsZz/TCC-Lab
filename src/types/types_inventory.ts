@@ -8,12 +8,15 @@ export type Inventory = { // Estoque
 
 export interface Assets { // Patrimonios
     id?:number,
-    assets_number:number,
-    serial_number:string,
+    property_number:number,
+    property_serial_number:string,
     name:string,
     brand:string,
     model:string,
-    lot_number:number
+    lot:number,
+    nf:number,
+    complement:string,
+    value_property:number,
 }
 
 export type ErrorAssets = {

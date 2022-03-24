@@ -1,15 +1,19 @@
 .container {
     display:flex;
     width:100%;
-    min-height:100vh;
+    /* min-height:100vh; */
     justify-content: center;
     align-items:center;
+    padding: 20px;
+    /* margin: 20px; */
+    flex-direction: column;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     width:60%;
+    flex-direction: row;
 }
 
 .form input {
@@ -28,4 +32,18 @@
     font-weight:700;
     background: rgba(62, 226, 231, 0.767);
     cursor: pointer;
+}
+
+.listProperty {
+    width: 50%;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    background-color: rgba(95, 89, 89, 0.253);
+    padding: 10px;
+}
+
+.listProperty h4 {
+    text-transform: uppercase;
 }

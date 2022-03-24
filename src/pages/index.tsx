@@ -1,32 +1,41 @@
 // Types
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import type { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType, NextPage } from "next";
 
 //Styles
-import styles from "../styles/home.module.css"; // todos os estilos...
+import styles from "../styles/assets.module.css"; // todos os estilos...
 
 //import system
 import { useForm } from 'react-hook-form';
-import  Router  from "next/router";
+
 
 //types page
-type SingIn = {
-  email:string
-  password:string
-}
 
 // OBS :: implementar graphQl para trazer apenas os dados necessários para cada pagina...
 
-const Home: NextPage = ( props: InferGetStaticPropsType<typeof getStaticProps>) => {
+import { manisfest } from '../config/config';
+import { Assets } from "../types/types_inventory";
+import Router from "next/router";
 
-  const {register, handleSubmit} = useForm<SingIn>();
+
+const Home: NextPage = ( props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+
+  const {register, handleSubmit} = useForm<Assets>();
 
   // Verificar o TOKEN_ID nos cookies se está valido....
   // caso não esteja SingIn ? /dashboard ... 
 
-  const singIn = async (data:SingIn) => {
-    //pega os dados de acesso e verifica se está cadastrado...
-    console.log(data, props);
-    Router.push('/assets')
+  const singIn = async (data:Assets) => {
+    
+    await fetch(`${manisfest.base_url}assets/`,{
+      method:"POST",
+      headers:{
+        'Content-Type':'Application/json'
+      },
+      body:JSON.stringify(data)
+    });
+
+    //Router.replace(Router.asPath);
+    
   }
 
 
@@ -45,31 +54,72 @@ const Home: NextPage = ( props: InferGetStaticPropsType<typeof getStaticProps>) 
 
     return (
       
-      <div className={styles.container}>
+      <div>
 
-        <form onSubmit= { handleSubmit(singIn) }>
+        <form onSubmit= { handleSubmit(singIn) }  className={styles.container}>
         
           {/* Pegar dois campos (email e senha) e enviar*/}
 
-          <input 
-            { ...register('email') }
-            type="email" 
-            name="email" 
-            placeholder="E-mail:"
-            //campo de email
-          />
-
-          <br/>
-
-          <input
-            { ...register('password') }
-            type='password'
-            name='password'
-            placeholder="Password:"
-            //campo password
-          />
-
-          <br/>
+          <div>
+            <input
+              {...register('name')}
+              type="text"
+              name="name"
+              placeholder="name asset"
+            />
+            <input
+              {...register('brand')}
+              type="text"
+              name="brand"
+              placeholder="brand"
+            />
+            <input
+              {...register('model')}
+              type='text'
+              name='model'
+              placeholder="model"
+            />
+            <input
+              {...register('complement')}
+              type="text"
+              name-='complement'
+              placeholder="complement"
+            />
+          </div>
+          <div>
+            <input 
+              { ...register('property_number') }
+              type="number" 
+              name="property_number" 
+              placeholder="Number to property:"
+            />
+            <input
+              {...register('property_serial_number')}
+              type='text'
+              name='property_serial_number'
+              placeholder="Serial number"
+            />
+            <input
+              {...register('lot')}
+              type='number'
+              name='lot'
+              placeholder="Lot"
+            />
+            <input 
+              {...register('nf')}
+              type='number'
+              name='nf'
+              placeholder="Nota Fiscal"
+            />
+          </div>
+          <div>
+            <input
+              {...register('value_property')}
+              type='number'
+              name="value_property"
+              placeholder="value"
+            />
+          </div>
 
           <button 
             type="submit"
@@ -80,17 +130,37 @@ const Home: NextPage = ( props: InferGetStaticPropsType<typeof getStaticProps>) 
 
         </form>
 
+        <div className={styles.container}>
+          {
+            props?.data?.map((item:Assets) => (
+              <div key={item.id} className={styles.listProperty}>
+                <h4>{item.name}</h4>
+                <h4>{item.model}</h4>
+                <h4>{item.property_serial_number}</h4>
+                <h4>R$ {item.value_property}</h4>
+              </div>
+            ))
+          }
+        </div>
       </div>
     );
   };
 }
-export const getStaticProps: GetStaticProps = async () => {
 
-  //pegar todos os usuarios... (fetch api)
+export const getServerSideProps: GetServerSideProps = async () => {
+
+  const res = await fetch(`${manisfest.base_url}assets/`,{
+    method:"GET",
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  })
+
+  const data = await res.json();
 
   return {
     props: {
-      //passar os usuarios
+      data:data.data
     },
   };
 };
