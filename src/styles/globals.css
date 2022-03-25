@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+table {
+  width: 70%;
+  margin: 0 auto;
+}
+td {
+  text-align: center;
+}
+table, th, td {
+  border:1px solid black;
+}

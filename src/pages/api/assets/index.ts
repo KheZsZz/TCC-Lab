@@ -18,7 +18,7 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
             const data = await sql_query<Assets>(
                 'SELECT * FROM property_tbl ORDER BY id DESC LIMIT 10',
                 []);
-            res.status(200).json( { data });
+            res.status(200).json(data);
         break;
 
         case "POST":
