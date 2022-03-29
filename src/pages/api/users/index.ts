@@ -2,7 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 //import sys
-import { sql_query } from '../../../lib/database';
+import { sql_query } from '../../../config/database';
 
 //types 
 import { Users } from '../../../types/types_users';
