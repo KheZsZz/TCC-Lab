@@ -7,7 +7,6 @@ import { sql_query } from '../../../config/database';
 //types 
 import { Assets } from '../../../types/types_inventory';
 
-
 const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
     const method = req.method;
     const assets:Assets = req.body;
