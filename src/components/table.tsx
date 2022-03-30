@@ -9,20 +9,19 @@ import {
   TableContainer, 
   TableHead, 
   TableRow, 
-  Paper 
 } from '@material-ui/core';
 
 
 
-const TableAssets = () => {
+const TableAssets = ({status}:any) => {
 
     const [data, setData] = useState<Assets[]>();
     const [loadding, setLoading] = useState(true);
     
     useEffect(()=>{
-        fetch('http://localhost:3000/api/assets/').then(res=>res.json()).then(i => setData(i))
+        fetch('http://localhost:3000/api/assets/').then(res => res.json()).then(i => setData(i))
         setLoading(false);
-    },[setData, setLoading]);
+    },[status]);
 
     if(loadding){
         return(
