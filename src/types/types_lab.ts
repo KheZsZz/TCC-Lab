@@ -1,40 +1,40 @@
 
 export type Adress = {
     id?:number;
-    type:string;
-    public_place:string;
-    number:number;
+    type_adress:string;
+    adress:string;
+    number_adress:number;
     neighborhood:string;
     city:string;
     uf:string;
-    cep:string;
+    zip_code:string;
 }
 
 export type Institution = {
     id?:number;
-    corporate:string;
+    corporate_name:string;
     cnpj:string;
     phone:string;
     email:string;
     responsible:string;
-    address:Adress;
+    address:Adress; //?
 }
 
 
 type Course = {
     id?:number;
-    name:string,
+    name_course:string,
     period:string,
-    date_start:Date,
-    date_finish:Date
+    initial_date:Date,
+    final_date:Date,
     fk_institution:Institution
 }
 
 type Discipline = {
     id?:number,
-    name:string,
-    acronym:string,
-    module:string,
+    n_school_subject:string,
+    abbreviation:string,
+    school_module:string,
     fk_course:Course
 }
 

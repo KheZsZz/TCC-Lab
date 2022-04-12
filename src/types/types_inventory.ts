@@ -1,22 +1,22 @@
 import { Users } from "./types_users";
 
-export type Inventory = { // Estoque
+export type Stock = { // Estoque
     id?:number,
     sector:string,
     fk_user:Users
 }
 
-export interface Assets { // Patrimonios
+export interface Assents { // Patrimonios
     id?:number,
-    property_number:number,
-    property_serial_number:string,
-    name:string,
+    assent_number:number,
+    serial_number:string,
+    assent_name:string,
     brand:string,
     model:string,
-    lot:number,
-    nf:number,
+    product_batch:number,
+    tax_invoice:number,
     complement:string,
-    value_property:number,
+    value_assent:number,
 }
 
 export type ErrorAssets = {
