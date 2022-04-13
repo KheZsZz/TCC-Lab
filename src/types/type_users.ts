@@ -1,7 +1,7 @@
-import { Adress, Institution } from "./types_lab";
+import { Adress, Institution } from "./types_Institution";
 
 export interface Users {
-    id_user?:number;
+    id?:number;
     name:string;
     last_name:string;
     email:string;
@@ -9,15 +9,17 @@ export interface Users {
     cpf:string;
     rg: string;
     phone:string;
-    rm:number;
     address:Adress;
-    institution:Institution;
+    corparate:Institution;
 }
 
-export interface Teacher extends Users {
-    id_teacher?:number;
-    is_coordinator:boolean;
-    is_docent:boolean;
+export interface Employee extends Users {
+    id?:number;
+    rm:number;
+    role:string;
 }
 
-export interface Student extends Users { id_aluno?:number; }
+export interface Student extends Users {
+    id?:number,
+    ra:number
+}

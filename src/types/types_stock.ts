@@ -1,9 +1,20 @@
 import { Users } from "./type_users";
 
+type ItensStock = {
+    id?:number,
+    serial_number:string,
+    product_batch:string,
+    name:string,
+    brand:string,
+    model:string,
+    desc:string
+}
+
 export type Stock = { // Estoque
     id?:number,
     sector:string,
-    fk_user:Users
+    responsable:Users,
+    itensStock:ItensStock[]
 }
 
 export interface Assents { // Patrimonios
@@ -19,6 +30,15 @@ export interface Assents { // Patrimonios
     value_assent:number,
 }
 
-export type ErrorAssets = {
-    message:Error | string
+interface MaintanceRequerement  {
+    id?:number,
+    data_requerement:Date,
+    observation:string
+    fixed_asset:Assents,
+    requester:Users
+}
+
+export interface MaintananceSchedule extends MaintanceRequerement {
+    id?:number,
+    desc:string,
 }
