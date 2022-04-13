@@ -12,11 +12,9 @@ const conect = mysql({config:{
 export const sql_query = async <T = unknown[]> (sqlquery:string, values:string[] | number[] | Object[] = []) => {
     try {
         await conect.connect();
-        console.log('conectado...')
         try{
             const result:T = await conect.query(sqlquery, values);
             await conect.end();
-            console.log('conectado')
             return result;
         }catch(e){
             console.error(e)
