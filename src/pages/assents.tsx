@@ -1,9 +1,9 @@
 //Types
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { Assents } from "../types/types_inventory";
+import { Assents } from "../types/types_stock";
 
 //styles
-import Styles from '../styles/assets.module.css'; 
+import Styles from '../styles/assents.module.css'; 
 
 //components
 import { Loadding } from '../components/loadding';
@@ -56,7 +56,7 @@ const Assents = ({ props }:InferGetStaticPropsType <typeof getStaticProps>) => {
                         { ...register('product_batch') }
                         name='product_batch'
                         type = 'number'
-                        placeholder = 'Insert assets lot number'
+                        placeholder = 'Insert assents produtc batch number'
                     />
 
                     <button type="submit"> Register </button>
@@ -82,7 +82,7 @@ const Assents = ({ props }:InferGetStaticPropsType <typeof getStaticProps>) => {
 
 const getStaticProps:GetStaticProps = async () => {
 
-    const res = await fetch('/api/assets/',{
+    const res = await fetch('/api/assents/',{
         method: 'GET',
         headers:{
             'Content-Type': 'application/json'

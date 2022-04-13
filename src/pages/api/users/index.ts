@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { sql_query } from '../../../config/database';
 
 //types 
-import { Users } from '../../../types/types_users';
+import { Users } from '../../../types/type_users';
 
 
 const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {

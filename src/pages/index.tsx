@@ -2,12 +2,12 @@
 import type { GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType, NextPage } from "next";
 
 //Styles
-import styles from "../styles/assets.module.css"; // todos os estilos...
+import styles from "../styles/assents.module.css"; // todos os estilos...
 
 //import system
 import { useForm } from 'react-hook-form';
 import { manisfest } from '../config/config';
-import { Assents } from "../types/types_inventory";
+import { Assents } from "../types/types_stock";
 import Table from "../components/table";
 import { useEffect, useState } from "react";
 
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
   const [values, setData] = useState<Assents>();
 
    const singIn = async (data:Assents) => {
-    await fetch(`${manisfest.base_url}assets/`,{
+    await fetch(`${manisfest.base_url}assents/`,{
       method:"POST",
       headers:{
         'Content-Type':'Application/json'
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
       <div>
         <form onSubmit= { handleSubmit(singIn) }  className={styles.container}>
           <div>
-            <input {...register('assent_name')} type="text" name="name" placeholder="name asset" required />
+            <input {...register('assent_name')} type="text" name="name" placeholder="name assent" required />
             <input {...register('brand')} type="text" name="brand" placeholder="brand" required/>
             <input {...register('model')} type='text' name='model' placeholder="model" required/>
             <input {...register('complement')} type="text" name-='complement' placeholder="complement"/>

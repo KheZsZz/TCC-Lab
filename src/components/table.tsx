@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";  
-import { Assets } from "../types/types_inventory";
+import { Assents } from "../types/types_stock";
 import styles from '../styles/tableComponent.module.css';
 
 import { 
@@ -13,13 +13,13 @@ import {
 
 
 
-const TableAssets = ({status}:any) => {
+const TableAssents = ({status}:any) => {
 
-    const [data, setData] = useState<Assets[]>();
+    const [data, setData] = useState<Assents[]>();
     const [loadding, setLoading] = useState(true);
     
     useEffect(()=>{
-        fetch('http://localhost:3000/api/assets/').then(res => res.json()).then(i => setData(i))
+        fetch('http://localhost:3000/api/assents/').then(res => res.json()).then(i => setData(i))
         setLoading(false);
     },[status]);
 
@@ -45,15 +45,15 @@ const TableAssets = ({status}:any) => {
             </TableHead>
 
             <TableBody>
-              {data?.map((row:Assets) => (
-                <TableRow key={row.name}>
+              {data?.map((row:Assents) => (
+                <TableRow key={row.assent_name}>
                   <TableCell component="th" scope="row">
-                    {row.name}
+                    {row.assent_name}
                   </TableCell>
-                  <TableCell align="center">{row.property_number}</TableCell>
-                  <TableCell align="center">{row.name}</TableCell>
+                  <TableCell align="center">{row.assent_number}</TableCell>
+                  <TableCell align="center">{row.assent_name}</TableCell>
                   <TableCell align="center">{row.model}</TableCell>
-                  <TableCell align="center">{row.property_serial_number}</TableCell>
+                  <TableCell align="center">{row.serial_number}</TableCell>
                   <TableCell align="center"></TableCell>
                 </TableRow>
               ))}
@@ -63,4 +63,4 @@ const TableAssets = ({status}:any) => {
       );
     }
 }
-export default TableAssets;
+export default TableAssents;

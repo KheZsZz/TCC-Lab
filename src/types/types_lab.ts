@@ -17,7 +17,7 @@ export type Institution = {
     phone:string;
     email:string;
     responsible:string;
-    address:Adress; //?
+    address:string; 
 }
 
 

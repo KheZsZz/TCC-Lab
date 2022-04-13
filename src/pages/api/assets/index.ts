@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { sql_query } from '../../../config/database';
 
 //types 
-import { Assents } from '../../../types/types_inventory';
+import { Assents } from '../../../types/types_stock';
 
 const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
     const method = req.method;

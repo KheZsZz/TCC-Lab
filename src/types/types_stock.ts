@@ -1,4 +1,4 @@
-import { Users } from "./types_users";
+import { Users } from "./type_users";
 
 export type Stock = { // Estoque
     id?:number,
