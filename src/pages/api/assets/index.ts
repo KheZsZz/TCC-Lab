@@ -14,18 +14,10 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
     switch(method){
 
         case "GET":
-            const count = req.method
-            if(count == "count"){
-                const data = await sql_query<Assents>(
-                    'SELECT COUNT(id) FROM property_tbl',
-                    []);
-                res.status(200).json(data);
-            } else {
-                const data = await sql_query<Assents>(
-                    'SELECT * FROM property_tbl ORDER BY id DESC LIMIT 10',
-                    []);
-                res.status(200).json(data);
-            }
+            const data = await sql_query<Assents>(
+                'SELECT * FROM property_tbl ORDER BY id DESC LIMIT 10',
+            []);
+            res.status(200).json(data);
         break;
 
         case "POST":
