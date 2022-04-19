@@ -14,7 +14,8 @@ export const manisfest = {
             educationHub:"EducationHub_tbl",
             laboratory:"labs_tbl",
             courses:"Courses_tbl",
-            schoolSubject:"SchoolSubject_tbl"
+            schoolSubject:"SchoolSubject_tbl",
+            assets:"fixedAssent_tbl"
         }
     }
 }
