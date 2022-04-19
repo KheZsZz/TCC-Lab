@@ -1,5 +1,6 @@
 //import types
 import { NextApiRequest, NextApiResponse } from 'next';
+import { manisfest } from '../../../config/config';
 
 //import sys
 import { sql_query } from '../../../config/database';
@@ -15,16 +16,28 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
 
         case "GET":
             const data = await sql_query<Assents>(
-                'SELECT * FROM property_tbl ORDER BY id DESC LIMIT 10',
-            []);
+                `SELECT * FROM ${manisfest.tablesBD.Institution.assets} WHERE verify = ? ORDER BY id`,
+            [1]);
             res.status(200).json(data);
         break;
 
         case "POST":
-
-        // res.status(200).json(assets);
             const insertData = 
-            await sql_query<Assents>(`INSERT INTO property_tbl(property_number, property_serial_number, name, brand, model, lot, nf, complement, value_property) VALUES (?,?,?,?,?,?,?,?,?)`,
+            await sql_query<Assents | any>(
+                `INSERT INTO ${manisfest.tablesBD.Institution.assets}
+                (
+                    assent_number,
+                    serial_number,
+                    assent_name,
+                    brand,
+                    model,
+                    product_batch,
+                    tax_invoice,
+                    complement,
+                    value_assent,
+                    color
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             [
                 Number(assets.assent_number),
                 assets.serial_number, 
@@ -34,10 +47,11 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
                 Number(assets.product_batch), 
                 Number(assets.tax_invoice), 
                 assets.complement,
-                Number(assets.value_assent)
+                Number(assets.value_assent),
+                assets.color
             ]);
 
-            res.status(200).json({data:insertData?.id});
+            res.status(200).json({insertId:insertData.insertId});
         break;
 
         default:
