@@ -28,6 +28,8 @@ export interface Assents { // Patrimonios
     tax_invoice:number,
     complement:string,
     value_assent:number,
+    verify:any,
+    color:string
 }
 
 interface MaintanceRequerement  {
