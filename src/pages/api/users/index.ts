@@ -22,11 +22,12 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
         break;
 
         case "POST":
-            const insertData = await sql_query<Users>(
-                `INSERT INTO ${manisfest.tablesBD.Users.users}
-                (name_user, last_name, cpf, rg, phone,email,password)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            const insertData = await sql_query<any>(
+                `INSERT INTO ${manisfest.tablesBD.Users.users} VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)`,
                 [
+                    null,
+                    1,
+                    1,
                     users.name,
                     users.last_name,
                     users.cpf,
@@ -34,8 +35,9 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
                     users.phone,
                     users.email,
                     users.password,
+                    1
                 ]);
-            res.status(200).json( insertData );
+            res.status(200).json({message:`Usuário inserido com sucesso! userId: ${insertData?.insertId}`});
         break;
 
         default:
