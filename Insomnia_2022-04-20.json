@@ -1,0 +1,308 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-04-20T20:00:09.405Z",
+  "__export_source": "insomnia.desktop.app:v2022.2.1",
+  "resources": [
+    {
+      "_id": "req_c8d0cae35c9542d88af13acbf817b7bc",
+      "parentId": "fld_b3d70699f2f140a08681efed47f751a8",
+      "modified": 1650480813742,
+      "created": 1650480671219,
+      "url": "",
+      "name": "Insert",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": ""
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_d3aee59e842f4dce88a3943363d48efe"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1650480646595,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_b3d70699f2f140a08681efed47f751a8",
+      "parentId": "wrk_45498f784ed943439c357dd713ee3e03",
+      "modified": 1650481012458,
+      "created": 1650480641215,
+      "name": "Adress",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1650410271421,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_45498f784ed943439c357dd713ee3e03",
+      "parentId": null,
+      "modified": 1650386769240,
+      "created": 1650386769240,
+      "name": "TCC",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_078e7c86297d4911bd700136b4771743",
+      "parentId": "fld_b3d70699f2f140a08681efed47f751a8",
+      "modified": 1650480658350,
+      "created": 1650480646545,
+      "url": "{{ _.base_url }}adress/",
+      "name": "Get all",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1650480646545,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c23a6289122e4618a021d0e3bbee87c0",
+      "parentId": "fld_cda535d2274446c79594a8ac4b0bf891",
+      "modified": 1650481035361,
+      "created": 1650481035361,
+      "url": "",
+      "name": "Get all ",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1650481035361,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_cda535d2274446c79594a8ac4b0bf891",
+      "parentId": "fld_c73f89fa977242c78506cf8019acbb08",
+      "modified": 1650481026490,
+      "created": 1650481026490,
+      "name": "corporate",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1650481026490,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_c73f89fa977242c78506cf8019acbb08",
+      "parentId": "wrk_45498f784ed943439c357dd713ee3e03",
+      "modified": 1650386814823,
+      "created": 1650386814823,
+      "name": "Institution",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1650386814823,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_7e35f24eeffe41c485bc757008f6f442",
+      "parentId": "fld_c4fa5f3c5c3047e0b558a650f144199e",
+      "modified": 1650484523233,
+      "created": 1650480536901,
+      "url": "{{ _.users }}",
+      "name": "Insert One",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\":\"Kevin\",\n\t\"last_name\":\"Oliveira\",\n\t\"cpf\":\"238.610.668-31\",\n\t\"rg\":\"53.806.243-5\",\n\t\"phone\":\"(11) 9.9577-8573\",\n\t\"email\":\"kevinklgvg@gmail.com\",\n\t\"password\":\"Asevenfold12@\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_3dafe7c6a90848f284c01fbbd4f68ca5"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1650480463894,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_c4fa5f3c5c3047e0b558a650f144199e",
+      "parentId": "fld_c73f89fa977242c78506cf8019acbb08",
+      "modified": 1650481016052,
+      "created": 1650386774273,
+      "name": "users",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1650386826889,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_0cb453fc08904b21857c6962b8142e70",
+      "parentId": "fld_c4fa5f3c5c3047e0b558a650f144199e",
+      "modified": 1650480508804,
+      "created": 1650480463844,
+      "url": "{{ _.users }}",
+      "name": "Get all",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1650480463844,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0668bfbe42874f54b5edaa70fe0fe656",
+      "parentId": "fld_2dbeaba772644bb684bda28510fc5b61",
+      "modified": 1650480355814,
+      "created": 1650387266526,
+      "url": "{{ _.instuction_assets }}",
+      "name": "Insert",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"assent_number\":1,\n\t\"serial_number\":\"1A2B3C4D5E\",\n\t\"assent_name\":\"Notebook\",\n\t\"brand\":\"Samsung\",\n\t\"model\":\"NP550XDA-KF1BR\",\n\t\"product_batch\":\"1\",\n\t\"tax_invoice\":\"1\",\n\t\"complement\":\"Intel Core i5-1135G7 (11ª Geração), Clock: 2.40 GHz (4.20 GHz), Cache: 8 MB L3\" ,\n\t\"value_assent\": 3579.90,\n\t\"color\": \"Prata\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_995ee8c672e9424497faa8091290e75e"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1650387266526,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_2dbeaba772644bb684bda28510fc5b61",
+      "parentId": "fld_c73f89fa977242c78506cf8019acbb08",
+      "modified": 1650386826839,
+      "created": 1650386826839,
+      "name": "Assets",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1650386826839,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_857371cf14d64428ad436f551c3e4352",
+      "parentId": "fld_2dbeaba772644bb684bda28510fc5b61",
+      "modified": 1650386891622,
+      "created": 1650386831804,
+      "url": "{{ _.instuction_assets }}",
+      "name": "Get all",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1650386831804,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_b51b2e10a1843eb549b993752c8f5faba4f15f2f",
+      "parentId": "wrk_45498f784ed943439c357dd713ee3e03",
+      "modified": 1650480500927,
+      "created": 1650386769253,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000/api/",
+        "instuction_assets": "http://localhost:3000/api/assets/",
+        "users": "http://localhost:3000/api/users/"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url",
+          "instuction_assets",
+          "users"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1650386769253,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_b51b2e10a1843eb549b993752c8f5faba4f15f2f",
+      "parentId": "wrk_45498f784ed943439c357dd713ee3e03",
+      "modified": 1650386769257,
+      "created": 1650386769257,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_ada63aea78ac43cea2b4bfcd55bb04f6",
+      "parentId": "wrk_45498f784ed943439c357dd713ee3e03",
+      "modified": 1650386769242,
+      "created": 1650386769242,
+      "fileName": "TCC",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
