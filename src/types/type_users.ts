@@ -2,15 +2,16 @@ import { Adress, Institution } from "./types_Institution";
 
 export interface Users {
     id?:number;
+    address:Adress;
+    corparate:Institution;
     name:string;
     last_name:string;
-    email:string;
-    password:string;
     cpf:string;
     rg: string;
     phone:string;
-    address:Adress;
-    corparate:Institution;
+    email:string;
+    password:string;
+    verify:number;
 }
 
 export interface Employee extends Users {

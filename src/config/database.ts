@@ -9,7 +9,7 @@ const conect = mysql({config:{
     port: 3306,
 }});
 
-export const sql_query = async <T = unknown[]> (sqlquery:string, values:string[] | number[] | Object[] = []) => {
+export const sql_query = async <T = unknown[]> (sqlquery:string, values:string[] | number[] | Object[] | any[] = []) => {
     try {
         await conect.connect();
         try{
