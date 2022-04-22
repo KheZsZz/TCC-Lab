@@ -9,3 +9,7 @@ insert into instruction_tbl values
 
 insert into users_tbl values
 (null, 1, 1, 'kevin', 'Oliveira', '238.610.668-31', '53.806.243-5', '(11) 9.99577-8573', 'kevinklgvg@gmail.com', 'Asevenfold12@');
+
+insert into educationhub_tbl values 
+(null, "Tecnologia"),
+(null, "Meio Ambiente");
