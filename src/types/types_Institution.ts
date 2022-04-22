@@ -21,7 +21,7 @@ export type Institution = {
     phone:string,
     email:string,
     responsible:string,
-    address:string,
+    address:Adress,
     educationHub:EducationHub,
 }
 
