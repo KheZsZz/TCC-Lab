@@ -2,8 +2,8 @@ import { Adress, Institution } from "./types_Institution";
 
 export interface Users {
     id?:number;
-    address:Adress;
-    corparate:Institution;
+    address?:Adress;
+    corparate?:Institution;
     name:string;
     last_name:string;
     cpf:string;
