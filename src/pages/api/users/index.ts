@@ -1,47 +1,46 @@
-//import types
 import { NextApiRequest, NextApiResponse } from 'next';
-import { manisfest } from '../../../config/config';
-
-//import sys
-import { sql_query } from '../../../config/database';
-
-//types 
 import { Users } from '../../../types/type_users';
-
+import { manisfest } from '../../../config/config';
+import { sql_query } from '../../../config/database';
 
 const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
     const users:Users = req.body;
+    const { verify } = req.body;
 
     switch(req.method){
-
         case "GET":
-            const data = await sql_query<Users>(
-                `SELECT * FROM ${manisfest.tablesBD.Users.users}`,
-                []);
-            res.status(200).json( data );
+            const data = await sql_query<Users>(`select * from ${manisfest.tablesBD.Users.users} where verify = ?`,[Number(verify)]);
+            if(verify === 1){
+                res.status(200).json({message:`Usuários ativos...`, data});
+            }else {
+                res.status(200).json({message:`Usuários desativados...`, data});
+            }
         break;
 
         case "POST":
-            const insertData = await sql_query<any>(
-                `INSERT INTO ${manisfest.tablesBD.Users.users} VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)`,
-                [
-                    null,
-                    1,
-                    1,
-                    users.name,
-                    users.last_name,
-                    users.cpf,
-                    users.rg,
-                    users.phone,
-                    users.email,
-                    users.password,
-                    1
-                ]);
-            res.status(200).json({message:`Usuário inserido com sucesso! userId: ${insertData?.insertId}`});
+            try {
+                const insertData = await sql_query<any>(
+                    `insert into ${manisfest.tablesBD.Users.users} values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                    [
+                        null,
+                        users.address?.id,
+                        users.corparate?.id,
+                        users.name,
+                        users.last_name,
+                        users.cpf,
+                        users.rg,
+                        users.phone,
+                        users.email,
+                        users.password
+                    ]);
+                res.status(200).json({message:`Usuário ${insertData?.insertId} inserido com sucesso!`});
+            } catch (error) {
+                res.status(204).json({message:`Erro ao cadastrar...`});
+            }
         break;
 
         default:
-            res.status(404).json( { message:'Sorry! Bad request error 404' } )
+            res.status(404).json( { message:'Sorry! Bad request error 404'} )
     }
 }
 export default Handle;
