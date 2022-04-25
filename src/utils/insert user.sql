@@ -13,3 +13,9 @@ insert into users_tbl values
 insert into educationhub_tbl values 
 (null, "Tecnologia"),
 (null, "Meio Ambiente");
+
+
+update tcc.users_tbl set 
+verify = 0 where id = 1;
+
+select * from tcc.users_tbl;
