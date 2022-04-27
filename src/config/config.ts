@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const manisfest = {
     base_url:"http://localhost:3000/api/",
     tablesBD:{
@@ -19,3 +21,11 @@ export const manisfest = {
         }
     }
 }
+
+export const api = axios.create({
+    baseURL:"http://localhost:3000/api/",
+    timeout: 1000,
+    headers: {
+        'Content-Type':'application/json'
+    }
+});
