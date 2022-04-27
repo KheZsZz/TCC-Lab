@@ -22,7 +22,7 @@ export type Institution = {
     email:string,
     responsible:string,
     address:Adress,
-    educationHub:EducationHub,
+    educationHub:EducationHub[],
 }
 
 

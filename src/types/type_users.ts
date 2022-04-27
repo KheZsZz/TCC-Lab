@@ -1,9 +1,7 @@
-import { Adress, Institution } from "./types_Institution";
-
-export interface Users {
+export type Users=  {
     id?:number;
-    address?:Adress;
-    corparate?:Institution;
+    address?:number;
+    corparate?:number;
     name:string;
     last_name:string;
     cpf:string;
