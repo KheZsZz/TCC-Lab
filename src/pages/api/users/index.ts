@@ -23,8 +23,8 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
                     `insert into ${manisfest.tablesBD.Users.users} values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                     [
                         null,
-                        users.address?.id,
-                        users.corparate?.id,
+                        users.address,
+                        users.corparate,
                         users.name,
                         users.last_name,
                         users.cpf,
