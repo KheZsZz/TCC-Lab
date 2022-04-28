@@ -1,5 +1,7 @@
 import { NextPage } from "next";
+import { useContext } from "react";
 import { useForm } from 'react-hook-form';
+import { AuthContext } from "../config/Auth";
 import { api } from "../config/config";
 
 type SingInData = {
@@ -10,15 +12,15 @@ type SingInData = {
 
 const Login:NextPage = () => {
   const { register, handleSubmit } = useForm<SingInData>();
+  const { SingIn  } = useContext(AuthContext);
 
-  const SingIn = async (data:SingInData) => {
-    const user = await api.get(`users/user/${data.email}`);
-    console.log(user);
+  const HandleSingIn = async (data:SingInData) => {
+    await SingIn({email:data.email, password:data.password});
   }
 
   return(
     <div>
-      <form onSubmit={handleSubmit(SingIn)}>
+      <form onSubmit={handleSubmit(HandleSingIn)}>
         <input 
           {...register('email')}
           type="email" 

@@ -4,7 +4,7 @@ import { sql_query } from "../../../../config/database";
 import type { Users } from '../../../../types/type_users';
 
 const handleUserEmail = async (req:NextApiRequest, res:NextApiResponse) => {
-  const { email, password } = req.query;
+  const { email } = req.query;
 
   switch(req.method){
     case "GET":
