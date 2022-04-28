@@ -36,14 +36,11 @@ export const Auth = ({children}:any) => {
           setCookie(undefined, 'token_labs', token);
           Router.push('/')
         }else {
-          api.interceptors
           alert("Email or password invalid");
-          
         }
       }
     } catch(error){
       console.error(error)
-      Router.push('/login')
     }
   }
 
