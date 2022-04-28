@@ -23,24 +23,23 @@ export const AuthContext = createContext({} as AuthContextType);
 export const Auth = ({children}:any) => {
 
   const [user, setUser] = useState<Users | null>(null);
-  const isAuthenticated = !!user;
+  const isAuthenticated = !!user;  
 
   const SingIn  = async ({email, password}:SingInData) => {
-    //chamada API
     try{
-      
-      setUser(await api.get(`/users/user/${email}`));
+      const { data } = await api.get<Users[]>(`/users/user/${email}`);
+      data.map((item:Users) =>setUser(item));
       
       if(isAuthenticated){
-        const token = sign(String(user?.id), "1234");
-        if(password !== user.password){
-          setCookie(undefined, 'token', token, {
-            maxAge: 60 * 60 * 1 // 1h
-          });
-          Router.push('/');
+        if(email === user.email && password === user.password){
+          const token = sign(String(user?.id), "1234");
+          setCookie(undefined, 'token_labs', token);
+          Router.push('/')
+        }else {
+          api.interceptors
+          alert("Email or password invalid");
+          
         }
-      }else {
-        console.log("not")
       }
     } catch(error){
       console.error(error)
