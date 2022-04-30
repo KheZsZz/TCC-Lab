@@ -9,11 +9,16 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
 
     switch(req.method){
         case "GET":
-            const data = await sql_query<Users>(`select * from ${manisfest.tablesBD.Users.users} where verify = ?`,[Number(verify)]);
-            if(verify === 1){
-                res.status(200).json({message:`Usuários ativos...`, data});
-            }else {
-                res.status(200).json({message:`Usuários desativados...`, data});
+            try {
+                const data = await sql_query<Users>(`select * from ${manisfest.tablesBD.Users.users} where verify = ?`,[Number(verify)]);
+                if(verify === 1){
+                    res.status(200).json({message:`Usuários ativos...`, data});
+                }
+                else {
+                    res.status(200).json({message:`Usuários desativados...`, data});
+                }    
+            } catch (error) {
+             res.status(204).json({message:`Error in request, error: ${error}`});   
             }
         break;
 
@@ -31,7 +36,8 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
                         users.rg,
                         users.phone,
                         users.email,
-                        users.password
+                        users.password,
+                        1
                     ]);
                 res.status(200).json({message:`Usuário ${insertData?.insertId} inserido com sucesso!`});
             } catch (error) {
