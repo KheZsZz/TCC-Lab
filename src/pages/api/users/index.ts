@@ -12,10 +12,10 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
             try {
                 const data = await sql_query<Users>(`select * from ${manisfest.tablesBD.Users.users} where verify = ?`,[Number(verify)]);
                 if(verify === 1){
-                    res.status(200).json({message:`Usuários ativos...`, data});
+                    res.status(200).json({isAtive:true, data});
                 }
                 else {
-                    res.status(200).json({message:`Usuários desativados...`, data});
+                    res.status(200).json({isAtive:false, data});
                 }    
             } catch (error) {
              res.status(404).json({message:`Error in request, error: ${error}`});   
@@ -46,7 +46,7 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
         break;
 
         default:
-            res.status(400).json( { message:`Sorry! Bad request error ${res.statusCode}`} )
+            res.status(400).json( { message:`Sorry! Bad request error ${res.status}`} )
     }
 }
 export default Handle;

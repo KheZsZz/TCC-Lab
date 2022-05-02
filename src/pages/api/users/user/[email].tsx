@@ -17,7 +17,7 @@ const handleUserEmail = async (req:NextApiRequest, res:NextApiResponse) => {
     break;
 
     default:
-      res.status(400).json({message:`Sorry, bad request error: 400`})
+      res.status(400).json({message:`Sorry, bad request error: ${res.status}`})
   }
 }
 export default handleUserEmail;
