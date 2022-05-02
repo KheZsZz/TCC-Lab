@@ -19,14 +19,14 @@ const handleUserID = async (req:NextApiRequest, res:NextApiResponse) => {
           const data = await sql_query<Users>(`select * from ${manisfest.tablesBD.Users.users} where id = ?`, [Number(id)]);
           res.status(200).json(data);  
         } catch (error) {
-          res.status(204).json({message:`Error in request, error: ${error}`});
+          res.status(404).json({message:`Error in request, error: ${error}`});
         }
       break;
 
-      case "PATCH":
+      case "PUT":
       break;
 
-      case "DELETE":
+      case "PATCH":
         try {
           const verify:Users[] = await (await fetch(`${manisfest.base_url}users/${id}`)).json();
           if(verify.length){

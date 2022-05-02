@@ -18,7 +18,7 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
                     res.status(200).json({message:`Usuários desativados...`, data});
                 }    
             } catch (error) {
-             res.status(204).json({message:`Error in request, error: ${error}`});   
+             res.status(404).json({message:`Error in request, error: ${error}`});   
             }
         break;
 
@@ -41,12 +41,12 @@ const Handle = async (req:NextApiRequest, res:NextApiResponse)  => {
                     ]);
                 res.status(200).json({message:`Usuário ${insertData?.insertId} inserido com sucesso!`});
             } catch (error) {
-                res.status(204).json({message:`Erro ao cadastrar...`});
+                res.status(404).json({message:`Erro ao cadastrar...`});
             }
         break;
 
         default:
-            res.status(404).json( { message:'Sorry! Bad request error 404'} )
+            res.status(400).json( { message:`Sorry! Bad request error ${res.statusCode}`} )
     }
 }
 export default Handle;

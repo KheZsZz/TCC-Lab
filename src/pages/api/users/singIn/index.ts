@@ -10,21 +10,20 @@ const HandleSingIn = async (req:NextApiRequest, res:NextApiResponse)  => {
         case "POST":
             try {
                 const { email, password } = req.body;
-                console.log(req.body)
 
-                const data = await sql_query<Users[]>(`select * from ${manisfest.tablesBD.Users.users} where email = ?`,[email]);
+                const data = await sql_query<Users[]>(`select * from ${manisfest.tablesBD.Users.users} where email = ? and verify = ?`,[email, 1]);
                 
                 data?.map(item => item.email == email && item.password == password ? 
                   res.status(200).json({isAutenticated:true}):
                   res.status(401).json({isAutenticated:false})
                 );
             } catch (error) {
-             res.status(204).json({message:`Error in request, error: ${error}`});   
+             res.status(406).json({message:`Error in request, error: ${error}`});   
             }
         break;
 
         default:
-            res.status(404).json( { message:'Sorry! Bad request error 404'} )
+            res.status(404).json( { message:`Sorry! Bad request error ${res.statusCode}`} );
     }
 }
 export default HandleSingIn;
