@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import { destroyCookie } from 'nookies';
 
 const Home: NextPage = () => {
   return (
@@ -8,4 +7,5 @@ const Home: NextPage = () => {
     </>
   );
 };
+
 export default Home;

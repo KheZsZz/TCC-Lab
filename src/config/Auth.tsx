@@ -1,6 +1,5 @@
 import { createContext } from 'react';
 import { api } from '../config/config';
-import { sign } from 'jsonwebtoken';
 import { setCookie } from 'nookies';
 import Router from 'next/router';
 
@@ -17,20 +16,17 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const Auth = ({ children }: any) => {
   const SingIn = async ({ email, password }: SingInData) => {
-    try {
-      const isAuthenticated = await api.post('users/singIn/', {
-        email,
-        password,
-      });
-      if (isAuthenticated.status === 200) {
-        const token = sign(isAuthenticated.data.userId, '8486', {
-          expiresIn: 60 * 1, // 1 min
-        });
-        setCookie(undefined, 'labs_user_token', token);
+    const isAuthenticated = await api.post('users/singIn', {
+      email,
+      password,
+    });
+    switch (isAuthenticated.status) {
+      case 200:
+        setCookie(undefined, 'labs_token', isAuthenticated.data.token);
         Router.push('/');
-      }
-    } catch (error) {
-      alert('Email or passord invalid');
+        break;
+      default:
+        alert({ message: `Email or password invalided` });
     }
   };
   return (
