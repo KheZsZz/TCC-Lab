@@ -1,4 +1,4 @@
-import mysql from "serverless-mysql";
+import mysql from 'serverless-mysql';
 
 const conect = mysql({
   config: {
@@ -12,7 +12,7 @@ const conect = mysql({
 
 export const sql_query = async <T = unknown[]>(
   sqlquery: string,
-  values: string[] | number[] | Object[] | any[] = []
+  values: string[] | number[] | Object[] | any[] = [],
 ) => {
   try {
     await conect.connect();
@@ -24,6 +24,6 @@ export const sql_query = async <T = unknown[]>(
       console.error(e);
     }
   } catch (error) {
-    console.error(error + "Error in connection");
+    console.error(error + 'Error in connection');
   }
 };
