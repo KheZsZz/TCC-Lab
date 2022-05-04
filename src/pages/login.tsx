@@ -1,45 +1,43 @@
 import { NextPage } from "next";
 import { useContext } from "react";
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
 import { AuthContext } from "../config/Auth";
 import { api } from "../config/config";
 
 type SingInData = {
-  email:string,
-  password:string
-}
+  email: string;
+  password: string;
+};
 
-
-const Login:NextPage = () => {
+const Login: NextPage = () => {
   const { register, handleSubmit } = useForm<SingInData>();
-  const { SingIn  } = useContext(AuthContext);
+  const { SingIn } = useContext(AuthContext);
 
-  const HandleSingIn = async (data:SingInData) => {
-    await SingIn({email:data.email, password:data.password});
-  }
+  const HandleSingIn = async (data: SingInData) => {
+    await SingIn({ email: data.email, password: data.password });
+  };
 
-  return(
+  return (
     <div>
       <form onSubmit={handleSubmit(HandleSingIn)}>
-        <input 
-          {...register('email')}
-          type="email" 
+        <input
+          {...register("email")}
+          type="email"
           name="email"
           placeholder="E-mail:"
         />
-        <br/>
+        <br />
         <input
-          {...register('password')}
+          {...register("password")}
           type="password"
           name="password"
           placeholder="Password:"
         />
-        <br/>
-        <input type="submit" value="Enviar"/>
+        <br />
+        <input type="submit" value="Enviar" />
       </form>
     </div>
   );
-}
-
+};
 
 export default Login;
