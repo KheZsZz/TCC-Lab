@@ -1,8 +1,8 @@
 import { NextPage } from "next";
+import Link from "next/link";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../config/Auth";
-import { api } from "../config/config";
 
 type SingInData = {
   email: string;
@@ -35,6 +35,10 @@ const Login: NextPage = () => {
         />
         <br />
         <input type="submit" value="Enviar" />
+        <br/>
+        <Link href='/register'>
+          <a>Register!</a>
+        </Link>
       </form>
     </div>
   );
