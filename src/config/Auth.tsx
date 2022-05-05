@@ -22,7 +22,9 @@ export const Auth = ({ children }: any) => {
     });
     switch (isAuthenticated.status) {
       case 200:
-        setCookie(undefined, 'labs_token', isAuthenticated.data.token);
+        await setCookie(undefined, 'labs_token', isAuthenticated.data.token, {
+          maxAge: 60 * 60 * 1,
+        });
         Router.push('/');
         break;
       default:

@@ -1,15 +1,15 @@
+import { decode } from 'jsonwebtoken';
 import {
   GetServerSideProps,
   NextPage,
   InferGetServerSidePropsType,
 } from 'next';
-import Router from 'next/router';
-import cookie from 'nookies';
-import { decode } from 'jsonwebtoken';
+import { parseCookies } from 'nookies';
 
 const Home: NextPage = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>,
 ) => {
+  console.log(props);
   return (
     <>
       <h1>Dashboard</h1>
@@ -17,10 +17,12 @@ const Home: NextPage = (
   );
 };
 const getServerSideProps: GetServerSideProps = async () => {
-  const token = cookie.get();
-  !token ? Router.push('/login') : null;
+  const { labs_token: token } = parseCookies();
+  const user = decode(token);
   return {
-    props: {},
+    props: {
+      user,
+    },
     redirect: {
       statusCode: 401,
       basePath: '/login',

@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+import { parseCookies } from 'nookies';
+const { labs_token: token } = parseCookies();
 export const manisfest = {
   base_url: 'http://localhost:3000/api/',
   tablesBD: {
@@ -23,7 +24,5 @@ export const manisfest = {
 
 export const api = axios.create({
   baseURL: 'http://localhost:3000/api/',
-  headers: {
-    'Content-Type': 'application/json',
-  },
 });
+
