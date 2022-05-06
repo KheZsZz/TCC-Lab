@@ -60,7 +60,7 @@ const Handle = async (req: NextApiRequest, res: NextApiResponse) => {
           .json({ message: `Sorry! Bad request error ${res.status}` });
     }
   } else {
-    res.status(401).json({ message: `inautorization` });
+    res.status(401).json({ message: `Unauthorized` });
   }
 };
 export default Handle;

@@ -16,6 +16,9 @@ export const manisfest = {
       schoolSubject: 'SchoolSubject_tbl',
       assets: 'fixedAssent_tbl',
     },
+    Requirements: {
+      labs: 'labsRequirement_tbl',
+    },
   },
 };
 
