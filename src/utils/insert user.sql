@@ -8,7 +8,7 @@ insert into instruction_tbl values
 (null, 2, 'Ecobus Transportes e Turismo Ltda Epp', '19.463.849/0001-20', '(11) 9.9577-8573', 'kevin@ecobusturismo.com.br', 'Geraldo Mendes Soares');
 
 insert into users_tbl values
-(null, 1, 1, 'kevin', 'Oliveira', '238.610.668-31', '53.806.243-5', '(11) 9.99577-8573', 'kevinklgvg@gmail.com', 'Asevenfold12@', false);
+(null, 1, 1, 'kevin', 'Oliveira', '238.610.668-31', '53.806.243-5', '(11) 9.99577-8573', 'kevinklgvg@gmail.com', 'Asevenfold12@', fxalse);
 
 insert into educationhub_tbl values 
 (null, "Tecnologia"),
@@ -18,4 +18,4 @@ insert into educationhub_tbl values
 update tcc.users_tbl set 
 verify = 1 where id = 1;
 
-select * from tcc.users_tbl;
+select * from tcc.users_tbl;users_tbl

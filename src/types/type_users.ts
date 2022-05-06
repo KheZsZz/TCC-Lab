@@ -1,8 +1,8 @@
 export type Users = {
   id?: number;
-  address?: number;
-  corparate?: number;
-  name: string;
+  address: number;
+  corparate: number;
+  name_user: string;
   last_name: string;
   cpf: string;
   rg: string;

@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { api } from '../config/config';
+import { api } from '../services/api';
 import { setCookie } from 'nookies';
 import Router from 'next/router';
 
@@ -22,7 +22,7 @@ export const Auth = ({ children }: any) => {
     });
     switch (isAuthenticated.status) {
       case 200:
-        await setCookie(undefined, 'labs_token', isAuthenticated.data.token, {
+        setCookie(undefined, 'labs_token', isAuthenticated.data.token, {
           maxAge: 60 * 60 * 1,
         });
         Router.push('/');

@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { AuthContext } from '../config/Auth';
+import { AuthContext } from '../services/Auth';
 
 type SingInData = {
   email: string;
