@@ -10,7 +10,7 @@ const handleUserID = async (req: NextApiRequest, res: NextApiResponse) => {
     case 'GET':
       try {
         const data = await sql_query<Users>(
-          `select * from ${manisfest.tablesBD.Users.users} where id = ?`,
+          `select id, name_user, last_name, fk_address, fk_corporate_name from ${manisfest.tablesBD.Users.users} where id = ?`,
           [Number(id)],
         );
         res.status(200).json(data);
